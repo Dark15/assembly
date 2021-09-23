@@ -2,7 +2,7 @@ BOOT_IMAGE = output/boot.img
 
 .SUFFIXES: .asm .bin
 .asm.bin:
-	nasm -f bin -o $@ $<
+	@nasm -f bin -o $@ $<
 
 all: setup
 .PHONY: all
@@ -16,6 +16,7 @@ clean:
 	@find . -name "*.bin" | xargs rm -f
 .PHONY: clean
 
-exercise1: ./exercises/exercise1/boot.bin
-	dd if=$< of=$(BOOT_IMAGE) bs=512 count=1 conv=notrunc
+exercise1: setup ./exercises/exercise1/boot.bin
+	@dd if=./exercises/exercise1/boot.bin of=$(BOOT_IMAGE) bs=512 count=1 conv=notrunc
+	@bochs -q
 .PHONY: exercise1
