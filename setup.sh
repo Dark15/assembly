@@ -5,7 +5,7 @@ ROOT=$(pwd)
 IMAGE_DIR=$ROOT/output/boot.img
 
 if [ ! -d "$ROOT/output" ]; then
-  midir -p "$ROOT"/output
+  mkdir -p "$ROOT"/output
 fi
 
 if [ ! -e "$IMAGE_DIR" ]; then
