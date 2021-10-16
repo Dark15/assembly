@@ -45,3 +45,8 @@ exercise4-3: setup ./exercises/exercise4/test5-3.bin
 	@dd if=./exercises/exercise4/test5-3.bin of=$(BOOT_IMAGE) bs=512 count=1 conv=notrunc
 	@bochs -q
 .PHONY: exercise4
+
+exercise5-1: setup ./exercises/exercise5/test6-1.bin
+	@dd if=./exercises/exercise5/test6-1.bin of=$(BOOT_IMAGE) bs=512 count=1 conv=notrunc
+	@bochs -q
+.PHONY: exercise5-1
