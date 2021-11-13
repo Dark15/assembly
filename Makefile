@@ -70,3 +70,7 @@ exercise8-2: setup ./exercises/exercise8/2.bin
 	@dd if=./exercises/exercise8/2.bin of=$(BOOT_IMAGE) bs=512 count=1 conv=notrunc
 	@bochs -q
 .PHONY: exercise8-2
+
+exercise10: setup ./exercises/exercise10/date.bin
+	@dd if=./exercises/exercise10/date.bin of=$(BOOT_IMAGE) bs=512 count=1 conv=notrunc
+	@bochs -q
