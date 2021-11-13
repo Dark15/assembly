@@ -1,0 +1,10 @@
+     1 00000000 31323334                db '1234'
+     2                                  section data1 align=16 vstart=0
+     3 00000000 35363738                  db '5678'
+     4 00000004 [04]                    label1: db label1
+     5                                  section data2 align=16
+     6 00000000 61626364                  db 'abcd'
+     7 00000004 [04]                    label2: db label2
+     8                                  section data3 align=32 vstart=0
+     9 00000000 41424344                  db 'ABCD'
+    10 00000004 [04]                    program_end: db program_end

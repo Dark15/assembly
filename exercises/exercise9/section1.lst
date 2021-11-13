@@ -1,0 +1,8 @@
+     1 00000000 31323334                db '1234'
+     2                                  section data1 align=16
+     3 00000000 35363738                  db '5678'
+     4 00000004 B80000                    mov ax, 0
+     5                                  section data2 align=16
+     6 00000000 61626364                  db 'abcd'
+     7                                  section data3 align=32
+     8 00000000 41424344                  db 'ABCD'

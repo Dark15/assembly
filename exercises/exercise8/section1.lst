@@ -1,0 +1,48 @@
+     1 00000000 E91A00                  jmp near start
+     2                                  
+     3 00000003 616263646566676869-     string: db 'abcdefghijklmnopqrstuvwxyz'
+     3 0000000C 6A6B6C6D6E6F707172-
+     3 00000015 737475767778797A   
+     4                                  
+     5                                  start:
+     6 0000001D B8C007                    mov ax, 0x7c0
+     7 00000020 8ED8                      mov ds, ax
+     8                                  
+     9 00000022 B800B8                    mov ax, 0xb800
+    10 00000025 8EC0                      mov es, ax
+    11                                  
+    12 00000027 B91A00                    mov cx, 26
+    13 0000002A BB[0300]                  mov bx, string
+    14                                  
+    15                                  lppush:
+    16 0000002D 8A07                      mov al, [bx]
+    17 0000002F 50                        push ax
+    18 00000030 43                        inc bx
+    19 00000031 E2FA                    loop lppush
+    20                                  
+    21 00000033 B91A00                  mov cx, 26
+    22 00000036 BB[0300]                mov bx, string
+    23                                  
+    24                                  lppop:
+    25 00000039 58                        pop ax
+    26 0000003A 8807                      mov [bx], al
+    27 0000003C 43                        inc bx
+    28 0000003D E2FA                    loop lppop
+    29                                  
+    30 0000003F BE[0300]                mov si, string
+    31 00000042 83E700                  and di, 0
+    32 00000045 B91A00                  mov cx, 26
+    33                                  
+    34                                  print:
+    35 00000048 8A04                      mov al, [si]
+    36 0000004A 268805                    mov byte es:[di], al
+    37 0000004D 46                        inc si
+    38 0000004E 47                        inc di
+    39 0000004F 26C60507                  mov byte es:[di], 0x07
+    40 00000053 47                        inc di
+    41 00000054 E2F2                    loop print
+    42                                  
+    43 00000056 EBFE                    jmp $
+    44                                  
+    45 00000058 00<rep 1A6h>            times 510 - ($ - $$) db 0
+    46 000001FE 55AA                    dw 0xAA55
