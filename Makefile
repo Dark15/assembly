@@ -74,3 +74,7 @@ exercise8-2: setup ./exercises/exercise8/2.bin
 exercise10: setup ./exercises/exercise10/date.bin
 	@dd if=./exercises/exercise10/date.bin of=$(BOOT_IMAGE) bs=512 count=1 conv=notrunc
 	@bochs -q
+
+exercise11: setup ./exercises/exercise11/CMOS_date_call.bin
+	@dd if=./exercises/exercise11/CMOS_date_call.bin of=$(BOOT_IMAGE) bs=512 count=1 conv=notrunc
+	@bochs -q
