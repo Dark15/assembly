@@ -78,3 +78,13 @@ exercise10: setup ./exercises/exercise10/date.bin
 exercise11: setup ./exercises/exercise11/CMOS_date_call.bin
 	@dd if=./exercises/exercise11/CMOS_date_call.bin of=$(BOOT_IMAGE) bs=512 count=1 conv=notrunc
 	@bochs -q
+
+exercise12-1: setup ./exercises/exercise12/test12-1.bin ./exercises/exercise12/db_hello.bin
+	@dd if=./exercises/exercise12/db_hello.bin of=$(BOOT_IMAGE) bs=512 count=1 seek=100 conv=notrunc
+	@dd if=./exercises/exercise12/test12-1.bin of=$(BOOT_IMAGE) bs=512 count=1 conv=notrunc
+	@bochs -q
+
+exercise12-2: setup ./exercises/exercise12/test12-2.bin
+	@dd if=./exercises/exercise12/test12-2.bin of=$(BOOT_IMAGE) bs=512 count=1 conv=notrunc
+	@bochs -q
+	
