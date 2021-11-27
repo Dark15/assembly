@@ -32,7 +32,7 @@ jnz waits
 mov ax, 0xb800
 mov es, ax
 xor di, di
-mov cx, 256
+mov cx, 3
 mov dx, 0x1f0
 
 readw:

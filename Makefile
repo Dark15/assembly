@@ -87,4 +87,13 @@ exercise12-1: setup ./exercises/exercise12/test12-1.bin ./exercises/exercise12/d
 exercise12-2: setup ./exercises/exercise12/test12-2.bin
 	@dd if=./exercises/exercise12/test12-2.bin of=$(BOOT_IMAGE) bs=512 count=1 conv=notrunc
 	@bochs -q
-	
+
+exercise13-1: setup ./exercises/exercise13/test12-3.bin ./exercises/exercise13/db_hello.bin ./exercises/exercise13/db_world.bin
+	@dd if=./exercises/exercise13/db_hello.bin of=$(BOOT_IMAGE) bs=512 count=1 seek=100 conv=notrunc
+	@dd if=./exercises/exercise13/db_world.bin of=$(BOOT_IMAGE) bs=512 count=1 seek=101 conv=notrunc
+	@dd if=./exercises/exercise13/test12-3.bin of=$(BOOT_IMAGE) bs=512 count=1 conv=notrunc
+	@bochs -q
+
+exercise13-2: setup ./exercises/exercise13/test13-1.bin
+	@dd if=./exercises/exercise13/test13-1.bin of=$(BOOT_IMAGE) bs=512 count=1 conv=notrunc
+	@bochs -q
