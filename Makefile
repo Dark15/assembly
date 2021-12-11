@@ -71,6 +71,10 @@ exercise8-2: setup ./exercises/exercise8/2.bin
 	@bochs -q
 .PHONY: exercise8-2
 
+exercise9: setup ./exercises/exercise9/section1.bin
+	@dd if=./exercises/exercise9/section1.bin of=$(BOOT_IMAGE) bs=512 count=1 conv=notrunc
+	@bochs -q
+
 exercise10: setup ./exercises/exercise10/date.bin
 	@dd if=./exercises/exercise10/date.bin of=$(BOOT_IMAGE) bs=512 count=1 conv=notrunc
 	@bochs -q
@@ -96,4 +100,12 @@ exercise13-1: setup ./exercises/exercise13/test12-3.bin ./exercises/exercise13/d
 
 exercise13-2: setup ./exercises/exercise13/test13-1.bin
 	@dd if=./exercises/exercise13/test13-1.bin of=$(BOOT_IMAGE) bs=512 count=1 conv=notrunc
+	@bochs -q
+
+exercise16-1: setup ./exercises/exercise16/test16-1.bin
+	@dd if=./exercises/exercise16/test16-1.bin of=$(BOOT_IMAGE) bs=512 count=1 conv=notrunc
+	@bochs -q
+
+exercise16-2: setup ./exercises/exercise16/test16-2.bin
+	@dd if=./exercises/exercise16/test16-2.bin of=$(BOOT_IMAGE) bs=512 count=1 conv=notrunc
 	@bochs -q

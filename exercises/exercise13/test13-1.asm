@@ -14,10 +14,7 @@ mov dx,0x3d5
 in al,dx        ; 读取光标位置的低8位值 
 mov bx,ax
 
-mov bl,80       ;回到行开头                
-div bl          ;除以80
-mul bl          ;乘以80
-mov bx,ax
+mov bl,80       ;回到行开头
 add bx,80+40   ;换行,居中
 
 ; 以下设置当前光标位置到居中
