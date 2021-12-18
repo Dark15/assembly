@@ -109,3 +109,11 @@ exercise16-1: setup ./exercises/exercise16/test16-1.bin
 exercise16-2: setup ./exercises/exercise16/test16-2.bin
 	@dd if=./exercises/exercise16/test16-2.bin of=$(BOOT_IMAGE) bs=512 count=1 conv=notrunc
 	@bochs -q
+
+exercise17: setup ./exercises/exercise17/test17.bin
+	@dd if=./exercises/exercise17/test17.bin of=$(BOOT_IMAGE) bs=512 count=1 conv=notrunc
+	@bochs -q
+
+exercise17-test: setup ./exercises/exercise17/c09_1.bin
+	@dd if=./exercises/exercise17/c09_1.bin of=$(BOOT_IMAGE) bs=512 count=1 conv=notrunc
+	@bochs -q
